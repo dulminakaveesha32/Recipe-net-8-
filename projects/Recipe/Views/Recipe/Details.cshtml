@@ -1,0 +1,24 @@
+@model Recipe.Models.RecipeModel
+@{
+    ViewData["Title"] = "Recipe Details";
+}
+
+<h2>@Model.Title</h2>
+
+<p><strong>Created Date:</strong> @Model.CreatedDate.ToString("yyyy-MM-dd")</p>
+
+@if (!string.IsNullOrEmpty(Model.ImageUrl))
+{
+    <div>
+        <img src="@Model.ImageUrl" alt="Recipe Image" class="img-fluid" />
+    </div>
+}
+
+<h3>Ingredients</h3>
+<p>@Model.Ingradients</p>
+
+<h3>Steps</h3>
+<p>@Model.Steps</p>
+
+<a asp-action="Edit" asp-route-id="@Model.RecipeId" class="btn btn-warning">Edit</a>
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

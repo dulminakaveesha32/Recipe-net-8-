@@ -1,0 +1,32 @@
+@model Recipe.Models.RecipeModel
+@{
+    ViewData["Title"] = "Create Recipe";
+}
+
+<h2>Create a New Recipe</h2>
+
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Ingradients"></label>
+        <textarea asp-for="Ingradients" class="form-control"></textarea>
+        <span asp-validation-for="Ingradients" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Steps"></label>
+        <textarea asp-for="Steps" class="form-control"></textarea>
+        <span asp-validation-for="Steps" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl"></label>
+        <input asp-for="ImageUrl" type="file" class="form-control-file" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Recipe</button>
+</form>
+
+<a asp-action="Index" class="btn btn-secondary">Back to List</a>

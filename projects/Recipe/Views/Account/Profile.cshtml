@@ -1,0 +1,36 @@
+@model Recipe.Models.UserModel
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h2>Your Profile</h2>
+
+<div class="profile-container">
+    <div class="form-group">
+        <label>Avatar</label>
+        <p>@Model.Avatar</p>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <p>@Model.Email</p>
+    </div>
+    <div class="form-group">
+        <label>Profile Image</label>
+        <div>
+            @if (!string.IsNullOrEmpty(Model.ProfileImageUrl))
+            {
+                <img src="@Model.ProfileImageUrl" alt="Profile Image" class="profile-img" />
+            }
+            else
+            {
+                <p>No profile image uploaded.</p>
+            }
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Bio</label>
+        <p>@Model.Bio</p>
+    </div>
+</div>
+
+<a asp-action="EditProfile" class="btn btn-primary">Edit Profile</a>
